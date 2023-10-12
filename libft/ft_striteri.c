@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*static void	ft_print_char(unsigned int i, char *s)
+{
+	printf("s[%d] = %c\n", i, *s);
+}*/
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int		i;
@@ -23,3 +28,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
+
+/*int	main(void)
+{
+	char s[] = "I want churros";
+
+	ft_striteri(s, ft_print_char);
+	return (0);
+}*/
