@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// Fills the first len bytes of the memory area pointed to by b with the constant int c.
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*bp;
 	size_t			count;
 
+	// Cast the pointer 'b' to an 'unsigned char' pointer to allow data access.
 	bp = (unsigned char *)b;
 	count = 0;
-	while (count < len)
+	while (len > count)
 	{
 		*bp = (unsigned char)c;
 		bp++;
@@ -30,9 +31,12 @@ void	*ft_memset(void *b, int c, size_t len)
 
 /*int	main(void)
 {
-	char	buffer[10];
+	char	str[] = "heyy";
+	char	str2[] = "heyy";
 
-	memset(buffer, 'A', sizeof(buffer));
-	printf("buffer: %s\n", buffer);
+	memset(str, 'A', 2);
+	printf("Original function: %s\n", str);
+	ft_memset(str2, 'A', 2);
+	printf("My function: %s\n", str2);
 	return (0);
 }*/
