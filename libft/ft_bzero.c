@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// It sets the first n bytes of the memory area pointed to by s to 0 
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
@@ -29,9 +30,14 @@ void	ft_bzero(void *s, size_t n)
 
 /*int	main(void)
 {
-	char	buffer[10];
+	char	str[] = "heyy";
+	char	str2[] = "heyy";
 
-	bzero(buffer, sizeof(buffer));
-	printf("buffer: %s\n", buffer);
+	bzero(str, 2);
+	printf("Original function: %s\n", str);
+	ft_bzero(str2, 2);
+	printf("My function: %s\n", str2);
+	if (ft_strncmp(str, str2, ft_strlen(str)) == 0)
+		printf("Same result\n");
 	return (0);
 }*/
