@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// Copy the string from src to dest, ensuring that the specified size is not exceeded
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
@@ -22,10 +23,12 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = src[i];
 		i++;
 	}
+	// ends with '\0'
 	if (dstsize != 0)
 		dst[i] = '\0';
 	while (src[i])
 		i++;
+	// return the value of the length of the source
 	return (i);
 }
 /*
