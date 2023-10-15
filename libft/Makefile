@@ -10,32 +10,35 @@ SRCS = ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
+#generar ejecutables
 OBJS = ${SRCS:.c=.o}
 BONUS_OBJS = ${BONUS:.c=.o}
-
+#compilador y flags de compilación
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-
+REMOVE = rm -f
+#regla para crear la librería principal
 all: ${NAME}
+#regla para crear el bonus
 bonus: ${BONUS_NAME}
 
 ${NAME}: ${OBJS}
 		 ar rcs ${NAME} ${OBJS}
-
+# regla para compilar archivos a ejecutables
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
+#para limpiar archivos
 clean:
-		${RM} ${OBJS} ${BONUS_OBJS}
-
+		${REMOVE} ${OBJS} ${BONUS_OBJS}
+#elimina los archivos y las librerías
 fclean: clean
-		${RM} ${NAME} ${BONUS_NAME}
-
+		${REMOVE} ${NAME} ${BONUS_NAME}
+#borrar y rehacer
 re: fclean all
 
 ${BONUS_NAME}: ${NAME} ${BONUS_OBJS}
 		 ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 		 ar rcs ${BONUS_NAME} ${OBJS} ${BONUS_OBJS}
 
+#para especificar que son tareas, no archivos
 .PHONY:	all clean fclean re bonus
