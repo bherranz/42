@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+// returns a pointer to the first occurrence of the int c in the memory block
+// not necessarily a string; in the first n bytes
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char		uc;
@@ -26,12 +28,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		us++;
 		n--;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*int	main(void)
 {
-	printf("Original: %s\n", memchr("teste", 't', 0));
-	printf("My function: %s", ft_memchr("teste", 't', 0));
+	printf("Original: %s\n", (char *)memchr("teste", 'e', 3));
+	printf("My function: %s", (char *)ft_memchr("teste", 'e', 3));
 	return (0);
 }*/
