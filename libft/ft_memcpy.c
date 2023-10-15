@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// Copies 'n' bytes from the area pointed to by 'src' to the one pointed to by 'dst'
+// Does not manage overlapping
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;
@@ -33,10 +34,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 /*int	main(void)
 {
-	char	source[] = "";
-	char	destination[0];
+	char	*source = "aaaa";
+	char	destination[6];
 
-	ft_memcpy(destination, source, 11);
-	printf("destination: %s\n", destination);
+	memcpy(destination, source, 2);
+	printf("Original function: %s\n", destination);
+	ft_memcpy(destination, source, 2);
+	printf("My function: %s\n", destination);
+
 	return (0);
 }*/
