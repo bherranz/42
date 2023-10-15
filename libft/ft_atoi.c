@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// converts the initial portion of the string pointed to by str to int
 int	ft_atoi(const char *str)
 {
 	int	neg;
@@ -39,9 +39,9 @@ int	ft_atoi(const char *str)
 	return (nb);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	printf("Original: %i\n", atoi("  +00432f2"));
 	printf("My function: %i", ft_atoi("  +00432f2"));
 	return (0);
-}*/
+}

@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// returns a pointer to the first occurrence of the integer c in the string s
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	uc;

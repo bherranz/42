@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// asigns dynamic memory to an specific number of objects with
+// and specific size, it initializes all ubications to 0
 void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*ip;

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// concatenates s1 and s2 with dynamic mem
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new;

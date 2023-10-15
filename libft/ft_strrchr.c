@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// returns a pointer to the  last  occurrence of the integer c in the string s
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned char	uc;
 	const char		*start;
 
 	uc = (unsigned char)c;
+	// store the initial pointer
 	start = s;
+	// go to the last position of s
 	while (*s)
 		s++;
 	while (s >= start)

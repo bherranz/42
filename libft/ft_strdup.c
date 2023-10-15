@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// duplicates a string with dynamic memory
 char	*ft_strdup(const char *s)
 {
 	char	*new;

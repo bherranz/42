@@ -24,5 +24,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		ft_lstdelone(current, del);
 		current = following;
 	}
+	// ensures that the list is empty
 	*lst = NULL;
 }

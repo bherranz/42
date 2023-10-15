@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+// Concatenates the src string to the end of the dst string, 
+// ensuring that the specified dstsize limit is not exceeded
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	filled_ds;
@@ -22,6 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	filled_ds = ft_strlen(dst);
 	src_size = ft_strlen(src);
+	// if the parameter dstsize is not the actual value of dst
 	if (dstsize < filled_ds)
 		total_size = src_size + dstsize;
 	else
