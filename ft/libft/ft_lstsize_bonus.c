@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/10/12 02:27:56 by bherranz          #+#    #+#             */
+/*   Updated: 2023/10/12 02:27:58 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	int	count;
 
-	if (!f || !del)
-		return (NULL);
-	new_l = NULL;
+	count = 0;
 	while (lst)
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
 		lst = lst ->next;
+		count++;
 	}
-	return (new_l);
+	return (count);
 }
+
+/*int	main(void)
+{
+	// Create new nodes
+    t_list *node1 = ft_lstnew("I");
+    t_list *node2 = ft_lstnew("want");
+    t_list *node3 = ft_lstnew("churros");
+
+	node1 ->next = node2;
+	node2 ->next = node3;
+	printf("%i", ft_lstsize(node1));
+	return (0);
+}*/

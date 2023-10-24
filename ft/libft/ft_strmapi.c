@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 13:08:58 by bherranz          #+#    #+#             */
-/*   Updated: 2023/09/27 13:09:04 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:08:25 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:08:28 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*static void	ft_print_char(unsigned int i, char *s)
+/*static char	ft_convert(unsigned int i, char c)
 {
-	printf("s[%d] = %c\n", i, *s);
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	i = i;
+	return (c);
 }*/
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*new;
 	int		i;
 
+	if (!s || !f)
+		return (NULL);
+	new = malloc(ft_strlen(s) + 1);
+	if (!new)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		new[i] = f(i, s[i]);
 		i++;
 	}
+	new[i] = '\0';
+	return (new);
 }
 
 /*int	main(void)
 {
-	char s[] = "I want churros";
+	char	*s = "ABCD123";
 
-	ft_striteri(s, ft_print_char);
+	printf("%s", ft_strmapi(s, ft_convert));
 	return (0);
 }*/

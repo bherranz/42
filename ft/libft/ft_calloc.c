@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/25 12:48:19 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/25 12:48:21 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	unsigned char	*ip;
+	size_t			total;
+	int				i;
 
-	if (!f || !del)
+	total = count * size;
+	ip = malloc (total);
+	if (!ip)
 		return (NULL);
-	new_l = NULL;
-	while (lst)
+	i = 0;
+	while (total > 0)
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		ip[i] = '\0';
+		i++;
+		total--;
 	}
-	return (new_l);
+	return (ip);
 }

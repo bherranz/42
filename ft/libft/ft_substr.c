@@ -1,38 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/26 13:17:01 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/26 13:17:03 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	char			*sub;
+	unsigned int	i;
 
-	if (!f || !del)
+	if (!s)
 		return (NULL);
-	new_l = NULL;
-	while (lst)
+	i = ft_strlen(s);
+	if (start >= i)
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
+		sub = malloc(1);
+		if (!sub)
 			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		sub[0] = '\0';
+		return (sub);
 	}
-	return (new_l);
+	if (len > i - start)
+		len = i - start;
+	sub = malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while ((len-- > 0) && s[start])
+		sub[i++] = s[start++];
+	sub[i] = '\0';
+	return (sub);
 }
+
+/*int	main(void)
+{
+	printf("%s\n", ft_substr(NULL, 2, 1));
+	return (0);
+}*/

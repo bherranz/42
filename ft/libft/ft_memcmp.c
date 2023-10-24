@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/23 19:37:59 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/23 19:38:01 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	unsigned const char	*us1;
+	unsigned const char	*us2;
 
-	if (!f || !del)
-		return (NULL);
-	new_l = NULL;
-	while (lst)
+	us1 = (const unsigned char *)s1;
+	us2 = (const unsigned char *)s2;
+	while (n > 0)
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		if (*us1 != *us2)
+			return ((int)(*us1) - (int)(*us2));
+		us1++;
+		us2++;
+		n--;
 	}
-	return (new_l);
+	return (0);
 }
+
+/*int	main(void)
+{
+	printf("Original: %i\n", memcmp("", "", 0));
+	printf("My function: %i", ft_memcmp("", "", 0));
+	return (0);
+}*/

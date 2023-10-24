@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/16 14:59:53 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/16 14:59:56 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	unsigned char	*bp;
+	size_t			count;
 
-	if (!f || !del)
-		return (NULL);
-	new_l = NULL;
-	while (lst)
+	bp = (unsigned char *)b;
+	count = 0;
+	while (count < len)
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		*bp = (unsigned char)c;
+		bp++;
+		count++;
 	}
-	return (new_l);
+	return (b);
 }
+
+/*int	main(void)
+{
+	char	buffer[10];
+
+	memset(buffer, 'A', sizeof(buffer));
+	printf("buffer: %s\n", buffer);
+	return (0);
+}*/

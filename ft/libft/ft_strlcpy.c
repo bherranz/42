@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/19 13:28:45 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/19 13:28:47 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	size_t	i;
 
-	if (!f || !del)
-		return (NULL);
-	new_l = NULL;
-	while (lst)
+	i = 0;
+	while (src[i] && (i + 1 < dstsize))
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		dst[i] = src[i];
+		i++;
 	}
-	return (new_l);
+	if (dstsize != 0)
+		dst[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }
+/*
+int	main(void)
+{
+	char	src[] = "";
+	char	dest[0];
+	char	dest2[0];
+
+
+	printf("Original: %lu, %s\n", strlcpy(dest, src, 0), dest);
+	printf("My function: %lu, %s", ft_strlcpy(dest2, src, 0), dest2);
+	return (0);
+}*/

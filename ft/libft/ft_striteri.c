@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:08:58 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:09:04 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+/*static void	ft_print_char(unsigned int i, char *s)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	printf("s[%d] = %c\n", i, *s);
+}*/
 
-	if (!f || !del)
-		return (NULL);
-	new_l = NULL;
-	while (lst)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int		i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
+		f(i, &s[i]);
+		i++;
 	}
-	return (new_l);
 }
+
+/*int	main(void)
+{
+	char s[] = "I want churros";
+
+	ft_striteri(s, ft_print_char);
+	return (0);
+}*/

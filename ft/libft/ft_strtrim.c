@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:53:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/12 18:53:33 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:07:23 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:07:29 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	t_list	*new_l;
-	t_list	*new_n;
-	void	*aux;
+	char	*new;
+	size_t	start;
+	size_t	end;
 
-	if (!f || !del)
+	if (!s1 || !set)
 		return (NULL);
-	new_l = NULL;
-	while (lst)
-	{
-		aux = f(lst ->content);
-		new_n = ft_lstnew(aux);
-		if (!new_n)
-		{
-			del(aux);
-			ft_lstclear(&new_l, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_l, new_n);
-		lst = lst ->next;
-	}
-	return (new_l);
+	start = 0;
+	if (!*s1)
+		end = 0;
+	else
+		end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (s1[end] && ft_strchr(set, s1[end]))
+		end--;
+	new = ft_substr(s1, start, end - start + 1);
+	return (new);
 }
+
+/*int	main(void)
+{
+	printf("%s", ft_strtrim(NULL, NULL));
+	return (0);
+}*/
