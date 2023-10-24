@@ -14,5 +14,22 @@
 
 int	ft_printf(char const *str, ...)
 {
-	
+	int	i;
+	int	
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '%')
+			write(1, &str[i], 1);
+		else
+		{
+			if (str[i + 1] == 'c')
+				write(1, &str[i + 1], 1);
+			elif (str[i + 1] == 's')
+				ft_string(&str[i + 1]);
+		}
+		i++;
+	}
+	return (i);
 }
