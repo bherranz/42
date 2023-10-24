@@ -15,9 +15,11 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	if (!*s1)
 		end = 0;
@@ -33,6 +35,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 /*int	main(void)
 {
-	printf("%s", ft_strtrim("fa", ""));
+	printf("%s", ft_strtrim(NULL, NULL));
 	return (0);
 }*/

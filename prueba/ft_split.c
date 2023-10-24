@@ -63,6 +63,8 @@ char	**ft_split(char const *s, char c)
 	int		count;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	count = count_words(s, c);
 	chop = malloc((count + 1) * sizeof(char *));
 	if (!chop)
@@ -86,12 +88,15 @@ char	**ft_split(char const *s, char c)
 
 /*int	main(void)
 {
-	char	**chip = ft_split("\0aa\0bbb", '\0');
+	char	**chip = ft_split("\0aa\0", '\0');
 
-	while (*chip)
+	if (chip)
 	{
-		printf("%s\n", *chip);
-		chip++;
+		while (*chip)
+		{
+			printf("%s\n", *chip);
+			chip++;
+		}
 	}
 	return (0);
 }*/

@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 13:19:16 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/24 13:19:19 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:10:02 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:10:05 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putendl_fd(char *s, int fd)
 {
-	ft_printf("First try: %c", 'A');
-	return (0);
+	if (!s)
+		return ;
+	while (*s != '\0')
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
 }
+
+/*int main(void)
+{
+	char str[] = "hello";
+
+	ft_putendl_fd(str, 1);
+	return (0);
+}*/

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 18:52:07 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/22 18:52:10 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/16 13:42:48 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/16 13:42:54 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_printf(char const *str, ...)
+size_t	ft_strlen(const char *s)
 {
-	
+	size_t	count;
+
+	count = 0;
+	while (s[count])
+	{
+		count++;
+	}
+	return (count);
 }
+
+/*int	main(void)
+{
+	printf("%lu", ft_strlen("jaime"));
+	return (0);
+}*/

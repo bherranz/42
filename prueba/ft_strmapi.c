@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 13:17:01 by bherranz          #+#    #+#             */
-/*   Updated: 2023/09/26 13:17:03 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:08:25 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:08:28 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*static char	ft_convert(unsigned int i, char c)
 {
-	char			*sub;
-	unsigned int	i;
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	i = i;
+	return (c);
+}*/
 
-	i = ft_strlen(s);
-	if (start >= i)
-	{
-		sub = malloc(1);
-		if (!sub)
-			return (NULL);
-		sub[0] = '\0';
-		return (sub);
-	}
-	if (len > i - start)
-		len = i - start;
-	sub = malloc(len + 1);
-	if (!sub)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*new;
+	int		i;
+
+	if (!s || !f)
+		return (NULL);
+	new = malloc(ft_strlen(s) + 1);
+	if (!new)
 		return (NULL);
 	i = 0;
-	while ((len-- > 0) && s[start])
-		sub[i++] = s[start++];
-	sub[i] = '\0';
-	return (sub);
+	while (s[i])
+	{
+		new[i] = f(i, s[i]);
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }
 
 /*int	main(void)
 {
-	printf("%s\n", ft_substr("ree", 2, 1));
+	char	*s = "ABCD123";
+
+	printf("%s", ft_strmapi(s, ft_convert));
 	return (0);
 }*/

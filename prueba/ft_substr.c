@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 12:59:37 by bherranz          #+#    #+#             */
-/*   Updated: 2023/09/27 12:59:39 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/26 13:17:01 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/26 13:17:03 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*new;
-	size_t	length;
-	size_t	i;
+	char			*sub;
+	unsigned int	i;
 
-	length = ft_strlen(s1) + ft_strlen(s2) + 1;
-	new = malloc(length);
-	i = 0;
-	if (!new)
+	if (!s)
 		return (NULL);
-	while (s1[i])
+	i = ft_strlen(s);
+	if (start >= i)
 	{
-		new[i] = s1[i];
-		i++;
+		sub = malloc(1);
+		if (!sub)
+			return (NULL);
+		sub[0] = '\0';
+		return (sub);
 	}
-	while (*s2)
-	{
-		new[i] = *s2;
-		i++;
-		s2++;
-	}
-	new[i] = '\0';
-	return (new);
+	if (len > i - start)
+		len = i - start;
+	sub = malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while ((len-- > 0) && s[start])
+		sub[i++] = s[start++];
+	sub[i] = '\0';
+	return (sub);
 }
 
 /*int	main(void)
 {
-	printf("%s", ft_strjoin("hay", " pizza"));
+	printf("%s\n", ft_substr(NULL, 2, 1));
 	return (0);
 }*/

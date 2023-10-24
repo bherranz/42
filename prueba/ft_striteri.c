@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 13:42:48 by bherranz          #+#    #+#             */
-/*   Updated: 2023/09/16 13:42:54 by bherranz         ###   ########.fr       */
+/*   Created: 2023/09/27 13:08:58 by bherranz          #+#    #+#             */
+/*   Updated: 2023/09/27 13:09:04 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+/*static void	ft_print_char(unsigned int i, char *s)
 {
-	int	count;
+	printf("s[%d] = %c\n", i, *s);
+}*/
 
-	count = 0;
-	while (str[count])
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int		i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		count++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (count);
 }
 
 /*int	main(void)
 {
-	printf("%i", ft_strlen("jaime"));
+	char s[] = "I want churros";
+
+	ft_striteri(s, ft_print_char);
 	return (0);
 }*/
