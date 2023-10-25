@@ -18,5 +18,9 @@
 # include <unistd.h>
 
 int	ft_printf(char const *str, ...);
+int	ft_flags(char const *str, va_list args);
+int	ft_character(int c);
+int	ft_string(const char *str);
+int	ft_integer(int num, int i);
 
 #endif

@@ -12,8 +12,11 @@
 
 #include "libftprintf.h"
 
+
 int	main(void)
 {
-	ft_printf("First try: %c", 'A');
+	int	len;
+
+	len = ft_printf("First try: %c", 'A');
 	return (0);
 }

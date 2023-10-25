@@ -12,24 +12,34 @@
 
 #include "libftprintf.h"
 
+int	ft_flags(char const *str, va_list args)
+{
+	int	count;
+
+	count = 0;
+	if (*str == 'c')
+		ft_character(va_arg(args, int));
+	return (count);
+}
+
 int	ft_printf(char const *str, ...)
 {
-	int	i;
-	int	
+	va_list	args;
+	int		count;
 
-	i = 0;
-	while (str[i])
+	count = 0;
+	va_start(args, str);
+	while (*str)
 	{
-		if (str[i] != '%')
-			write(1, &str[i], 1);
+		if (*str != '%')
+			write(1, str, 1);
 		else
 		{
-			if (str[i + 1] == 'c')
-				write(1, &str[i + 1], 1);
-			elif (str[i + 1] == 's')
-				ft_string(&str[i + 1]);
+			count = count + ft_flags(str, args);
+			if (ft_flags(str, args) != 0)
+				str++;
 		}
-		i++;
+		str++;
 	}
-	return (i);
+	return (count);
 }
