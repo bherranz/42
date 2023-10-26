@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
 int	ft_printf(char const *str, ...);
 int	ft_flags(char const *str, va_list args);

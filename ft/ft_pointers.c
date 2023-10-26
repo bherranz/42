@@ -22,6 +22,7 @@ int	ft_string(const char *str)
 {
 	int			i;
 
+	i = 0;
 	while (*str)
 	{
 		write(1, &str[i], 1);

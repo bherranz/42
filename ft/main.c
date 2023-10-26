@@ -11,12 +11,16 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
+#include <stdio.h>
 
 int	main(void)
 {
 	int	len;
+	int	plen;
 
-	len = ft_printf("First try: %c", 'A');
+	len = ft_printf("First try: %y", 'a');
+	printf("\nlen: %i\n", len);
+	plen = printf("First try: %y", 'a');
+	printf("\nlen: %i", plen);
 	return (0);
 }
