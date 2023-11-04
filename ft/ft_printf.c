@@ -19,6 +19,10 @@ int	ft_flags(char const *str, va_list args)
 	count = 0;
 	if (*str == 'c')
 		count = ft_character(va_arg(args, int));
+	else if (*str == '%')
+		count = ft_character('%');
+	else if (*str == 's')
+		count = ft_string(va_arg(args, char *));
 	return (count);
 }
 
@@ -36,10 +40,10 @@ int	ft_printf(char const *str, ...)
 			write(1, str, 1);
 			count++;
 		}
-		else if (ft_strchr("cspdiuxX", *(str + 1)))
+		else if (*str == '%' && *(str + 1))
 		{
 			str++;
-			count = count + ft_flags(str, args);
+			count += ft_flags(str, args);
 		}
 		str++;
 	}

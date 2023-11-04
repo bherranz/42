@@ -20,13 +20,13 @@ int	ft_character(int c)
 
 int	ft_string(const char *str)
 {
-	int			i;
+	int	count;
 
-	i = 0;
-	while (*str)
+	count = 0;
+	while (str[count])
 	{
-		write(1, &str[i], 1);
-		i++;
+		write(1, &str[count], 1);
+		count++;
 	}
-	return (0);
+	return (count);
 }
