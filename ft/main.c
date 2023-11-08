@@ -39,6 +39,13 @@ int	main(void)
 	printf("length: %i\n", len);
 	plen = printf("Original: %s\n", "I love cats");
 	printf("length: %i\n\n", plen);
+
+	//to print integers
+	ft_printf("Test print integers:\n");
+	len = ft_printf("My print: %i\n", 15);
+	printf("length: %i\n", len);
+	plen = printf("Original: %i\n", 15);
+	printf("length: %i\n\n", plen);
 	return (0);
 }
 #endif
