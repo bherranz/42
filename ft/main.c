@@ -46,6 +46,13 @@ int	main(void)
 	printf("length: %i\n", len);
 	plen = printf("Original: %i\n", -15321);
 	printf("length: %i\n\n", plen);
+
+	//to print integers with 'd' flag
+	ft_printf("Test print integers:\n");
+	len = ft_printf("My print: %d\n", -15321);
+	printf("length: %i\n", len);
+	plen = printf("Original: %d\n", -15321.2);
+	printf("length: %i\n\n", plen);
 	return (0);
 }
 #endif

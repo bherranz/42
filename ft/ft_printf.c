@@ -23,7 +23,7 @@ int	ft_flags(char const *str, va_list args)
 		count = ft_character('%');
 	else if (*str == 's')
 		count = ft_string(va_arg(args, char *));
-	else if (*str == 'i')
+	else if (*str == 'i' || *str == 'd')
 		count = ft_integer(va_arg(args, int), 0);
 	return (count);
 }
