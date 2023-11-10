@@ -42,9 +42,9 @@ int	main(void)
 
 	//to print integers
 	ft_printf("Test print integers:\n");
-	len = ft_printf("My print: %i\n", 15);
+	len = ft_printf("My print: %i\n", -15321);
 	printf("length: %i\n", len);
-	plen = printf("Original: %i\n", 15);
+	plen = printf("Original: %i\n", -15321);
 	printf("length: %i\n\n", plen);
 	return (0);
 }

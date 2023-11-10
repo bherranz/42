@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 int	ft_integer(int num, int i)
 {
@@ -30,10 +31,7 @@ int	ft_integer(int num, int i)
 	}
 	c = num % 10 + '0';
 	if (num >= 10)
-	{
-		ft_integer(num / 10, i);
-	}
-	i++;
+		i = ft_integer(num / 10, i);
 	write(1, &c, 1);
-	return (i);
+	return (i + 1);
 }
