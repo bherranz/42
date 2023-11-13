@@ -35,3 +35,8 @@ int	ft_integer(int num, int i)
 	write(1, &c, 1);
 	return (i + 1);
 }
+
+int	ft_unsign(unsigned int num, int i)
+{
+	return (i);
+}

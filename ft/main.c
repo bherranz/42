@@ -51,7 +51,14 @@ int	main(void)
 	ft_printf("Test print integers:\n");
 	len = ft_printf("My print: %d\n", -15321);
 	printf("length: %i\n", len);
-	plen = printf("Original: %d\n", -15321.2);
+	plen = printf("Original: %d\n", -15321);
+	printf("length: %i\n\n", plen);
+
+	//to print integers with 'u' flag
+	/*ft_printf("Test print integers:\n");
+	len = ft_printf("My print: %d\n", -15321);
+	printf("length: %i\n", len);*/
+	plen = printf("Original: %u\n", -1);
 	printf("length: %i\n\n", plen);
 	return (0);
 }
