@@ -1,48 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nums.c                                          :+:      :+:    :+:   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 11:02:31 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/25 11:02:37 by bherranz         ###   ########.fr       */
+/*   Created: 2023/11/14 11:15:43 by bherranz          #+#    #+#             */
+/*   Updated: 2023/11/14 11:15:44 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int	ft_integer(int num, int i)
+int	ft_lowerhex(unsigned long num, int i)
 {
+	char	*digits;
 	char	c;
 
-	if (num == -2147483648)
+	digits = "0123456789abcdef";
+	if (num >= 16)
 	{
-		write(1, "-214748364", 10);
-		i = i + 9;
-		num = 8;
+		i = ft_lowerhex((num / 16), i);
 	}
-	else if (num < 0)
-	{
-		write(1, "-", 1);
-		i++;
-		num = -num;
-	}
-	c = num % 10 + '0';
-	if (num >= 10)
-		i = ft_integer((num / 10), i);
+	c = digits[num % 16];
 	write(1, &c, 1);
 	return (i + 1);
 }
 
-int	ft_unsign(unsigned int num, int i)
+int	ft_upperhex(unsigned long num, int i)
 {
+	char	*digits;
 	char	c;
 
-	c = num % 10 + '0';
-	if (num >= 10)
-		i = ft_integer((num / 10), i);
+	digits = "0123456789ABCDEF";
+	if (num >= 16)
+	{
+		i = ft_lowerhex((num / 16), i);
+	}
+	c = digits[num % 16];
+	write(1, &c, 1);
+	return (i + 1);
+}
+
+int	ft_pointers(unsigned long num, int i)
+{
+	char	*digits;
+	char	c;
+
+	digits = "0123456789ABCDEF";
+	if (num >= 16)
+	{
+		i = ft_lowerhex((num / 16), i);
+	}
+	c = digits[num % 16];
 	write(1, &c, 1);
 	return (i + 1);
 }

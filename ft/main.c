@@ -55,10 +55,31 @@ int	main(void)
 	printf("length: %i\n\n", plen);
 
 	//to print integers with 'u' flag
-	/*ft_printf("Test print integers:\n");
-	len = ft_printf("My print: %d\n", -15321);
-	printf("length: %i\n", len);*/
+	ft_printf("Test print unsigned integers:\n");
+	len = ft_printf("My print: %u\n", -1);
+	printf("length: %i\n", len);
 	plen = printf("Original: %u\n", -1);
+	printf("length: %i\n\n", plen);
+
+	//to print hexadecimals lowercase
+	ft_printf("Test print unsigned integers:\n");
+	len = ft_printf("My print: %x\n", 30);
+	printf("length: %i\n", len);
+	plen = printf("Original: %x\n", 30);
+	printf("length: %i\n\n", plen);
+
+	//to print hexadecimals uppercase
+	ft_printf("Test print unsigned integers:\n");
+	len = ft_printf("My print: %X\n", 30);
+	printf("length: %i\n", len);
+	plen = printf("Original: %X\n", 30);
+	printf("length: %i\n\n", plen);
+
+	//to print pointers
+	ft_printf("Test print unsigned integers:\n");
+	len = ft_printf("My print: %p\n", (void *)&len);
+	printf("length: %i\n", len);
+	plen = printf("Original: %p\n", (void *)&len);
 	printf("length: %i\n\n", plen);
 	return (0);
 }

@@ -25,6 +25,17 @@ int	ft_flags(char const *str, va_list args)
 		count = ft_string(va_arg(args, char *));
 	else if (*str == 'i' || *str == 'd')
 		count = ft_integer(va_arg(args, int), 0);
+	else if (*str == 'u')
+		count = ft_unsign(va_arg(args, unsigned int), 0);
+	else if (*str == 'x')
+		count = ft_lowerhex(va_arg(args, unsigned long), 0);
+	else if (*str == 'X')
+		count = ft_upperhex(va_arg(args, unsigned long), 0);
+	else if (*str == 'p')
+	{
+		write(1, "0x", 2);
+		count = 2 + ft_pointers(va_arg(args, unsigned long), 0);
+	}
 	return (count);
 }
 

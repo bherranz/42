@@ -22,5 +22,9 @@ int	ft_flags(char const *str, va_list args);
 int	ft_character(int c);
 int	ft_string(const char *str);
 int	ft_integer(int num, int i);
+int	ft_unsign(unsigned int num, int i);
+int	ft_lowerhex(unsigned long num, int i);
+int	ft_upperhex(unsigned long num, int i);
+int	ft_pointers(unsigned long num, int i);
 
 #endif
