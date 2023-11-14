@@ -6,7 +6,7 @@
 /*   By: bherranz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:19:16 by bherranz          #+#    #+#             */
-/*   Updated: 2023/10/24 13:19:19 by bherranz         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:57:44 by bherranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(void)
 
 	//to print strings
 	ft_printf("Test print strings:\n");
-	len = ft_printf("My print: %s\n", "I love cats");
+	len = ft_printf("My print: %s\n", (char *) NULL);
 	printf("length: %i\n", len);
-	plen = printf("Original: %s\n", "I love cats");
+	plen = printf("Original: %s\n", (char *) NULL);
 	printf("length: %i\n\n", plen);
 
 	//to print integers
@@ -80,6 +80,13 @@ int	main(void)
 	len = ft_printf("My print: %p\n", (void *)&len);
 	printf("length: %i\n", len);
 	plen = printf("Original: %p\n", (void *)&len);
+	printf("length: %i\n\n", plen);
+
+	//random
+	ft_printf("Test random:\n");
+	len = ft_printf("Test: %X and %X\n", 255, 1024);
+	printf("length: %i\n", len);
+	plen = printf("Test: %X and %X\n", 255, 1024);
 	printf("length: %i\n\n", plen);
 	return (0);
 }

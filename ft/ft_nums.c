@@ -20,7 +20,7 @@ int	ft_integer(int num, int i)
 	if (num == -2147483648)
 	{
 		write(1, "-214748364", 10);
-		i = i + 9;
+		i = i + 10;
 		num = 8;
 	}
 	else if (num < 0)

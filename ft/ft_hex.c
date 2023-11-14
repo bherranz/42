@@ -35,7 +35,7 @@ int	ft_upperhex(unsigned long num, int i)
 	digits = "0123456789ABCDEF";
 	if (num >= 16)
 	{
-		i = ft_lowerhex((num / 16), i);
+		i = ft_upperhex((num / 16), i);
 	}
 	c = digits[num % 16];
 	write(1, &c, 1);
@@ -47,7 +47,7 @@ int	ft_pointers(unsigned long num, int i)
 	char	*digits;
 	char	c;
 
-	digits = "0123456789ABCDEF";
+	digits = "0123456789abcdef";
 	if (num >= 16)
 	{
 		i = ft_lowerhex((num / 16), i);
