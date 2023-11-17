@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	ft_lowerhex(unsigned long num, int i)
+int	ft_lowerhex(size_t num, int i)
 {
 	char	*digits;
 	char	c;
@@ -27,7 +27,7 @@ int	ft_lowerhex(unsigned long num, int i)
 	return (i + 1);
 }
 
-int	ft_upperhex(unsigned long num, int i)
+int	ft_upperhex(size_t num, int i)
 {
 	char	*digits;
 	char	c;

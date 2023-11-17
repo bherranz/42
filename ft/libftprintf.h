@@ -23,8 +23,8 @@ int	ft_character(int c);
 int	ft_string(const char *str);
 int	ft_integer(int num, int i);
 int	ft_unsign(unsigned int num, int i);
-int	ft_lowerhex(unsigned long num, int i);
-int	ft_upperhex(unsigned long num, int i);
+int	ft_lowerhex(size_t num, int i);
+int	ft_upperhex(size_t num, int i);
 int	ft_pointers(unsigned long num, int i);
 
 #endif
