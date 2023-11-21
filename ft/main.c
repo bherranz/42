@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
-#if 1
+#if 0
 
 int	main(void)
 {
@@ -84,11 +84,11 @@ int	main(void)
 
 	//random
 	ft_printf("Test random:\n");
-	len = ft_printf("%p5G\%xN-enL1S%pl, |MO(%iu$K:y}eq;%s0~UaTK\tuoC%ul$lu%x7~`~F\n", (void *)-441271699212909198, 2049404865, (void 
-*)-4336391760040263667, -248244470, " I*_.vcaG", -1315258988, -1000000);
-	printf("length: %i\n", len);
-	plen = printf("%p5G\%xN-enL1S%pl, |MO(%iu$K:y}eq;%s0~UaTK\tuoC%ul$lu%x7~`~F\n", (void *)-441271699212909198, 2049404865, (void 
-*)-4336391760040263667, -248244470, " I*_.vcaG", -1315258988, -1000000);
+	ft_printf("My print: ");
+	len = ft_printf("\001\002\007\v\010\f\r\n");
+	ft_printf("length: %i\n", len);
+	ft_printf("Original: ");
+	plen = printf("\001\002\007\v\010\f\r\n");
 	printf("length: %i\n\n", plen);
 
 	ft_printf("%p, %x", (void *)2, -114341);
