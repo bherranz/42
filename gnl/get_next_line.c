@@ -21,6 +21,8 @@ char	*get_next_line(int fd)
 	char	*buffer;
 	int		count_r;
 
+	if (fd == -1)
+		return ("(null)");
 	buffer = (char *)malloc(BUFFER_SIZE);
 	count_r = read(fd, buffer, sizeof(buffer));
 	if (count_r > 0)
