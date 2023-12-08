@@ -14,8 +14,7 @@
 
 int	ft_character(int c)
 {
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -31,8 +30,7 @@ int	ft_string(const char *str)
 	}
 	while (str[count])
 	{
-		if (write(1, &str[count], 1) == -1)
-			return (-1);
+		write(1, &str[count], 1);
 		count++;
 	}
 	return (count);

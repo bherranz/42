@@ -32,8 +32,7 @@ int	ft_integer(int num, int i)
 	c = num % 10 + '0';
 	if (num >= 10)
 		i = ft_integer((num / 10), i);
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (i + 1);
 }
 
@@ -44,7 +43,6 @@ int	ft_unsign(unsigned int num, int i)
 	c = num % 10 + '0';
 	if (num >= 10)
 		i = ft_integer((num / 10), i);
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (i + 1);
 }

@@ -23,8 +23,7 @@ int	ft_lowerhex(size_t num, int i)
 		i = ft_lowerhex((num / 16), i);
 	}
 	c = digits[num % 16];
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (i + 1);
 }
 
@@ -39,8 +38,7 @@ int	ft_upperhex(size_t num, int i)
 		i = ft_upperhex((num / 16), i);
 	}
 	c = digits[num % 16];
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (i + 1);
 }
 
@@ -55,7 +53,6 @@ int	ft_pointers(unsigned long num, int i)
 		i = ft_lowerhex((num / 16), i);
 	}
 	c = digits[num % 16];
-	if (write(1, &c, 1) == -1)
-		return (-1);
+	write(1, &c, 1);
 	return (i + 1);
 }

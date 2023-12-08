@@ -50,8 +50,7 @@ int	ft_printf(char const *str, ...)
 	{
 		if (*str != '%')
 		{
-			if (write(1, str, 1) == -1)
-				return (-1);
+			write(1, str, 1);
 			count++;
 		}
 		else if (*str == '%' && *(str + 1))
