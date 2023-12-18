@@ -12,28 +12,24 @@
 
 #include "get_next_line.h"
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 4096
-#endif
-
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
-	int			count_r;
-	int			len_line;
 
-	if (fd == -1)
-		return ("(null)");
-	buffer = (char *)malloc(BUFFER_SIZE + 1);
-	while (*buffer != '\n')
-		len_line++;
-	
-	count_r = read(fd, buffer, BUFFER_SIZE);
-	if (count_r > 0)
+	new_line(buffer, fd);
+	return (NULL);
+}
+
+char	*new_line(char *buffer, int fd)
+{
+	int		num_read;
+	char	*line;
+
+	num_read = read(fd, buffer, BUFFER_SIZE);
+	if (num_read > 0)
 	{
-		get_next_line(fd);
-		return (line);
+		while (*buffer && *buffer != '\n')
+			buffer++;
 	}
-	free(buffer);
 	return (NULL);
 }

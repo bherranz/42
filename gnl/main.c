@@ -23,10 +23,13 @@ void	leaks(void)
 
 int	main(void)
 {
-	int	fd;
+	int		fd;
+	char	*line;
 
 	fd = open("archivo.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
+	line = get_next_line(fd);
+	while (line != NULL)
+		printf(line);
 	atexit(leaks);
 	close(fd);
 
