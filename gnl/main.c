@@ -27,12 +27,14 @@ int	main(void)
 	char	*line;
 
 	fd = open("archivo.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line != NULL)
-		printf(line);
+	if (fd < 0)
+		return (1);
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s",line);
+	}
 	atexit(leaks);
 	close(fd);
-
 	return (0);
 }
 

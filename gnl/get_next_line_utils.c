@@ -12,16 +12,41 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	count;
+	unsigned char	*ip;
+	size_t			total;
+	int				i;
 
-	count = 0;
-	while (s[count])
+	total = count * size;
+	ip = malloc (total);
+	if (!ip)
+		return (NULL);
+	i = 0;
+	while (total > 0)
 	{
-		count++;
+		ip[i] = '\0';
+		i++;
+		total--;
 	}
-	return (count);
+	return (ip);
 }
 
+char	*ft_strdup(const char *s)
+{
+	char	*new;
+	int		i;
 
+	i = 0;
+	while (s[i])
+		i++;
+	new = malloc (i + 1);
+	if (!new)
+		return (NULL);
+	while (i >= 0)
+	{
+		new[i] = s[i];
+		i--;
+	}
+	return (new);
+}
