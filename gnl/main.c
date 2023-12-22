@@ -29,10 +29,24 @@ int	main(void)
 	fd = open("archivo.txt", O_RDONLY);
 	if (fd < 0)
 		return (1);
-	while ((line = get_next_line(fd)) != NULL)
+	line = NULL;
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	/*while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("%s",line);
-	}
+		printf("%s", line);
+	}*/
+	// while (1)
+	// {
+	// 	line = get_next_line(fd);
+	// 	if (line == NULL)
+	// 		break ;
+	// }
 	atexit(leaks);
 	close(fd);
 	return (0);

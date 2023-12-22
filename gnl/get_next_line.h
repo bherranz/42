@@ -23,7 +23,11 @@
 char	*get_next_line(int fd);
 char	*read_buffer(char *buffer, int fd);
 void	*ft_calloc(size_t count, size_t size);
-int		line(char *buffer);
+char	*new_line(char *buffer);
 char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*update(char *buffer);
 
 #endif
