@@ -64,7 +64,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	size_t	i;
@@ -82,6 +82,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			new[i] = s1[i];
 			i++;
 		}
+		free(s1);
 	}
 	while (*s2)
 	{
@@ -93,7 +94,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char			*sub;
 	unsigned int	i;

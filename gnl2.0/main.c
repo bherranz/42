@@ -27,15 +27,13 @@ int	main(void)
 	char	*line;
 
 	fd = open("archivo.txt", O_RDONLY);
-	if (fd < 0)
-		return (1);
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
-	while ((line = get_next_line(fd)) != NULL)
+	while ((line = get_next_line(5)) != NULL)
 	{
 		printf("%s", line);
 		free(line);

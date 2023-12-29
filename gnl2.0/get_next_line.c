@@ -22,11 +22,11 @@ char	*read_buffer(int fd, char *buffer)
 	while (num_read > 0 && !ft_strchr(new, '\n'))
 	{
 		num_read = read(fd, new, BUFFER_SIZE);
-		if (num_read <= 0)
+		if (num_read < 0)
 			return (NULL);
 		buffer = ft_strjoin(buffer, new);
 	}
-	return (buffer);
+	return (free(new), buffer);
 }
 
 char	*new_line(char *buffer)
@@ -35,6 +35,8 @@ char	*new_line(char *buffer)
 	int		count;
 
 	count = 0;
+	if (buffer[0] == '\0')
+		return (NULL);
 	while (buffer[count] && buffer[count] != '\n')
 		count++;
 	if (buffer[count] == '\n')
@@ -53,9 +55,8 @@ char	*to_be_continued(char *buffer, char *line)
 		return (NULL);
 	while (buffer[start] == line[start] && buffer[start])
 		start++;
-	new = ft_substr(buffer, start, ft_strlen(buffer));
-	if (buffer[start] == '\0')
-		return (NULL);
+	new = ft_substr(buffer, start, ft_strlen(buffer) - start);
+	free(buffer);
 	return (new);
 }
 
@@ -66,8 +67,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0)
 		return (NULL);
-	buffer = read_buffer(fd, buffer);
-	if (!buffer)
+
+	if (!buffer || !ft_strchr(buffer, '\n'))
+		buffer = read_buffer(fd, buffer);
+	if (!buffer && buffer[0] == '\0')
 		return (NULL);
 	line = new_line(buffer);
 	buffer = to_be_continued(buffer, line);
